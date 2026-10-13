@@ -3,31 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KukuhShop07 X Caca Manis App</title>
+  <title>KukuhShop07 X Caca Manis</title>
   
   <meta name="theme-color" content="#121212">
-  <meta name="description" content="Aplikasi Digital Service KukuhShop07 X Caca Manis">
+  <meta name="description" content="Katalog Digital Service KukuhShop07 X Caca Manis">
   <link rel="manifest" href="manifest.json">
-  <link rel="apple-touch-icon" href="https://via.placeholder.com/192">
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
     body { background-color: #121212; color: #ffffff; padding-bottom: 30px; }
     header { background: linear-gradient(135deg, #1e1e2f, #111119); padding: 20px; text-align: center; border-bottom: 2px solid #333; }
-    header h1 { font-size: 1.5rem; color: #00d2ff; }
+    header h1 { font-size: 1.4rem; color: #00d2ff; }
     header p { font-size: 0.85rem; color: #aaa; margin-top: 5px; }
     .container { max-width: 600px; margin: 0 auto; padding: 15px; }
-    .search-box { margin-bottom: 15px; }
-    .search-box input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #333; background: #1e1e2f; color: #fff; }
+    
     #installBanner { display: none; background: #00d2ff; color: #000; padding: 12px; border-radius: 8px; font-weight: bold; text-align: center; margin-bottom: 15px; cursor: pointer; }
-    .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .search-box { margin-bottom: 20px; }
+    .search-box input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #333; background: #1e1e2f; color: #fff; font-size: 0.9rem; }
+    
+    .category-title { color: #00d2ff; font-size: 1.1rem; margin: 20px 0 10px 0; border-bottom: 1px solid #333; padding-bottom: 5px; }
+    .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .product-card { background: #1e1e2f; border-radius: 10px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #2a2a3d; }
-    .product-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 5px; }
-    .product-price { color: #00e676; font-weight: bold; font-size: 0.9rem; margin-bottom: 10px; }
-    .btn-buy { background: #00d2ff; color: #000; border: none; padding: 8px; border-radius: 6px; font-weight: bold; cursor: pointer; text-align: center; text-decoration: none; font-size: 0.85rem; }
-    .qris-section { margin-top: 25px; background: #1e1e2f; padding: 15px; border-radius: 10px; text-align: center; }
-    .qris-section h3 { font-size: 1rem; margin-bottom: 10px; color: #00d2ff; }
-    .qris-img { max-width: 200px; border-radius: 8px; margin-top: 10px; }
+    .product-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 5px; color: #fff; }
+    .product-price { color: #00e676; font-weight: bold; font-size: 0.85rem; margin-bottom: 10px; }
+    .btn-buy { background: #00d2ff; color: #000; border: none; padding: 8px; border-radius: 6px; font-weight: bold; cursor: pointer; text-align: center; text-decoration: none; font-size: 0.8rem; }
   </style>
 </head>
 <body>
@@ -39,43 +38,80 @@
 
   <div class="container">
     <div id="installBanner" onclick="installApp()">
-      📲 Klik di sini untuk Install Aplikasi KukuhShop07
+      📲 Klik di sini untuk Install Aplikasi
     </div>
 
     <div class="search-box">
       <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Cari layanan / produk...">
     </div>
 
-    <div class="product-grid" id="productList">
+    <!-- KATEGORI 1: TOP UP GAME -->
+    <div class="category-title">🎮 Top Up Game</div>
+    <div class="product-grid">
       <div class="product-card">
         <div>
           <div class="product-title">Mobile Legends Diamond</div>
-          <div class="product-price">Rp 15.000</div>
+          <div class="product-price">Mulai Rp 15.000</div>
         </div>
-        <button class="btn-buy" onclick="orderWA('Mobile Legends Diamond', 'Rp 15.000')">Beli via WA</button>
+        <button class="btn-buy" onclick="orderWA('Mobile Legends Diamond')">Order WA</button>
       </div>
 
       <div class="product-card">
         <div>
-          <div class="product-title">Aplikasi Premium</div>
-          <div class="product-price">Rp 25.000</div>
+          <div class="product-title">Free Fire Diamonds</div>
+          <div class="product-price">Mulai Rp 10.000</div>
         </div>
-        <button class="btn-buy" onclick="orderWA('Aplikasi Premium', 'Rp 25.000')">Beli via WA</button>
+        <button class="btn-buy" onclick="orderWA('Free Fire Diamonds')">Order WA</button>
       </div>
     </div>
 
-    <div class="qris-section">
-      <h3>Metode Pembayaran QRIS</h3>
-      <p style="font-size: 0.8rem; color: #ccc;">Scan QRIS untuk pembayaran instant seluruh E-Wallet & Bank</p>
-      <img src="https://via.placeholder.com/200x200?text=QRIS+CODE" alt="QRIS" class="qris-img">
+    <!-- KATEGORI 2: APLIKASI PREMIUM -->
+    <div class="category-title">📱 Aplikasi Premium</div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div>
+          <div class="product-title">Aplikasi Premium & Subscriptions</div>
+          <div class="product-price">Harga Spesial</div>
+        </div>
+        <button class="btn-buy" onclick="orderWA('Aplikasi Premium')">Order WA</button>
+      </div>
+
+      <div class="product-card">
+        <div>
+          <div class="product-title">Akun & Lisensi Digital</div>
+          <div class="product-price">Harga Spesial</div>
+        </div>
+        <button class="btn-buy" onclick="orderWA('Akun / Lisensi Digital')">Order WA</button>
+      </div>
     </div>
+
+    <!-- KATEGORI 3: DIGITAL GROWTH & SOSMED -->
+    <div class="category-title">🚀 Digital Growth Service</div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div>
+          <div class="product-title">Layanan Followers & Likes</div>
+          <div class="product-price">Cek Price List</div>
+        </div>
+        <button class="btn-buy" onclick="orderWA('Layanan Followers / Likes')">Order WA</button>
+      </div>
+
+      <div class="product-card">
+        <div>
+          <div class="product-title">Jasa Digital & Booster</div>
+          <div class="product-price">Konsultasi Gratis</div>
+        </div>
+        <button class="btn-buy" onclick="orderWA('Jasa Digital & Booster')">Order WA</button>
+      </div>
+    </div>
+
   </div>
 
   <script>
-    const whatsappNumber = "628123456789"; // Ganti nomor WA kamu di sini
+    const whatsappNumber = "628123456789"; // Ganti ke nomor WA kamu jika ingin disesuaikan
 
-    function orderWA(productName, price) {
-      const message = `Halo KukuhShop07, saya ingin membeli:\n- Produk: *${productName}*\n- Harga: *${price}*\n\nMohon diproses, terima kasih!`;
+    function orderWA(productName) {
+      const message = `Halo KukuhShop07 X Caca Manis, saya ingin order/tanya info mengenai: *${productName}*`;
       window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
     }
 
