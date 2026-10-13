@@ -48,6 +48,23 @@
             padding: 0 15px;
         }
 
+        /* Video Intro Container */
+        .video-box {
+            background: #15102e;
+            border: 2px solid #ff007f;
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.3);
+        }
+
+        .video-box video {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 8px;
+        }
+
         /* Intro Music Player Box */
         .audio-player {
             background: #15102e;
@@ -229,15 +246,22 @@
 
     <div class="container">
         
+        <!-- VIDEO INTRO SECTION -->
+        <div class="video-box">
+            <video autoplay loop muted playsinline controls>
+                <source src="intro.mp4" type="video/mp4">
+                Browser Anda tidak mendukung pemutar video.
+            </video>
+        </div>
+
         <!-- INTRO MUSIC PLAYER -->
         <div class="audio-player">
-            <span><i class="fas fa-music"></i> Intro Music - KukuhShop07 X Caca Manis</span>
+            <span><i class="fas fa-music"></i> Intro Sound - KukuhShop07 X Caca Manis</span>
             <button class="btn-play" onclick="toggleAudio()">
                 <i class="fas fa-play" id="playIcon"></i> <span id="playText">Putar Musik</span>
             </button>
-            <!-- Sumber audio latar belakang (bisa diganti link musik pilihan Anda) -->
             <audio id="bgAudio" loop>
-                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                <source src="somebodys_pleasure_v1.mp3" type="audio/mpeg">
                 Browser Anda tidak mendukung elemen audio.
             </audio>
         </div>
