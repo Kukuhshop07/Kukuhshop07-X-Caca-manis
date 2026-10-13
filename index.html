@@ -3,93 +3,413 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KukuhShop07 X Caca Manis - Etalase Digital</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>KukuhShop07 X Caca Manis - Official Store</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #0b0818; color: #ffffff; line-height: 1.6; padding-bottom: 50px; }
-        header { background: linear-gradient(135deg, #1f0545, #5100c2); text-align: center; padding: 35px 20px; border-bottom: 3px solid #ff007f; box-shadow: 0 4px 20px rgba(255, 0, 127, 0.4); }
-        header h1 { font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px; color: #ffffff; text-shadow: 0 0 10px #ff007f; }
-        header p { font-size: 0.95rem; color: #d1c4e9; margin-top: 5px; }
-        .container { max-width: 1000px; margin: 20px auto; padding: 0 15px; }
-        .search-container { margin-bottom: 25px; }
-        .search-box input { width: 100%; padding: 12px 20px; border-radius: 25px; border: 1px solid #281d52; background: #15102e; color: #fff; font-size: 1rem; outline: none; }
-        .category-header { font-size: 1.3rem; margin: 30px 0 15px 0; color: #ff80ab; border-left: 4px solid #ff007f; padding-left: 10px; display: flex; align-items: center; gap: 10px; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
-        .product-card { background: #15102e; border: 1px solid #281d52; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; }
-        .product-badge { align-self: flex-start; background: rgba(255, 0, 127, 0.2); color: #ff80ab; font-size: 0.75rem; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; font-weight: bold; }
-        .product-title { font-size: 1.05rem; font-weight: bold; color: #ffffff; margin-bottom: 6px; }
-        .product-desc { font-size: 0.85rem; color: #b39ddb; margin-bottom: 15px; }
-        .product-price { font-size: 1.15rem; font-weight: bold; color: #00e676; margin-bottom: 12px; }
-        .btn-buy { background: linear-gradient(45deg, #5100c2, #ff007f); color: white; text-align: center; text-decoration: none; padding: 9px; border-radius: 8px; font-weight: bold; display: block; font-size: 0.9rem; }
-        .payment-box { background: #15102e; border: 1px dashed #ff007f; border-radius: 12px; padding: 25px; text-align: center; margin-top: 40px; }
-        .payment-box img { max-width: 180px; border-radius: 8px; margin: 15px 0; border: 2px solid #fff; }
-        footer { text-align: center; margin-top: 40px; font-size: 0.85rem; color: #7e57c2; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #080612;
+            color: #ffffff;
+            line-height: 1.6;
+            padding-bottom: 60px;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Background Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 0, 127, 0.15), transparent 70%);
+            z-index: -1;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -20%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(123, 31, 162, 0.2), transparent 70%);
+            z-index: -1;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(18, 12, 38, 0.8);
+            backdrop-filter: blur(12px);
+            text-align: center;
+            padding: 45px 20px 35px;
+            border-bottom: 2px solid rgba(255, 0, 127, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, #ff007f, #00f0ff, #ff007f);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        header p {
+            font-size: 0.9rem;
+            color: #a792e3;
+            margin-top: 6px;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* SEARCH BAR */
+        .search-container {
+            margin-bottom: 35px;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ff007f;
+            font-size: 1.1rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px 14px 50px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 0, 127, 0.3);
+            background: #120c26;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .search-box input:focus {
+            border-color: #ff007f;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.4), inset 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        /* CATEGORY TITLE */
+        .category-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 40px 0 20px 0;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .category-header i {
+            color: #ff007f;
+            text-shadow: 0 0 10px #ff007f;
+        }
+
+        /* PRODUCT GRID */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .product-card {
+            background: linear-gradient(145deg, #160e33, #0d0821);
+            border: 1px solid rgba(123, 31, 162, 0.3);
+            border-radius: 16px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .product-card:hover {
+            transform: translateY(-7px);
+            border-color: #ff007f;
+            box-shadow: 0 12px 30px rgba(255, 0, 127, 0.25);
+        }
+
+        .product-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff007f, #7b1fa2);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(255, 0, 127, 0.4);
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            font-size: 0.85rem;
+            color: #9e8cb8;
+            margin-bottom: 18px;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #00f0ff;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+            margin-bottom: 16px;
+        }
+
+        .btn-buy {
+            background: linear-gradient(90deg, #25d366, #128c7e);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            padding: 11px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-buy:hover {
+            background: linear-gradient(90deg, #128c7e, #25d366);
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+            transform: scale(1.02);
+        }
+
+        /* PAYMENT BOX */
+        .payment-box {
+            background: linear-gradient(145deg, #160e33, #0d0821);
+            border: 2px dashed rgba(255, 0, 127, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .payment-box h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: #ff007f;
+            margin-bottom: 8px;
+        }
+
+        .payment-box p {
+            font-size: 0.88rem;
+            color: #a792e3;
+        }
+
+        .payment-box img {
+            max-width: 200px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 3px solid #ff007f;
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.85rem;
+            color: #635280;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.6rem; }
+            .container { padding: 0 15px; }
+        }
     </style>
 </head>
 <body>
+
     <header>
         <h1>KukuhShop07 X Caca Manis</h1>
-        <p>Layanan Digital, Aplikasi Premium & Top Up Game (Kukuh KW)</p>
+        <p>Digital Store & Application Subscription Official</p>
     </header>
+
     <div class="container">
+        
+        <!-- SEARCH -->
         <div class="search-container">
             <div class="search-box">
-                <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Cari layanan...">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Cari aplikasi, game, atau layanan sosmed...">
             </div>
         </div>
 
-        <div class="category-header"><i class="fas fa-tv"></i> Aplikasi Premium Subscription</div>
+        <!-- CATEGORY 1 -->
+        <div class="category-header"><i class="fas fa-fire"></i> Aplikasi Premium</div>
         <div class="product-grid" id="productGrid">
+            
             <div class="product-card">
                 <div>
                     <span class="product-badge">Terlaris</span>
-                    <div class="product-title">Netflix Premium (1 Bulan)</div>
-                    <div class="product-desc">Private/Shared profile 4K Ultra HD anti on-hold. Full garansi.</div>
+                    <div class="product-title">Netflix Premium</div>
+                    <div class="product-desc">Private/Shared profile 4K Ultra HD anti on-hold. Garansi full.</div>
                 </div>
                 <div>
                     <div class="product-price">Rp 35.000</div>
                     <a href="https://wa.me/?text=Halo%20KukuhShop07,%20saya%20mau%20order%20Netflix%20Premium" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> Pesan Sekarang</a>
                 </div>
             </div>
+
             <div class="product-card">
                 <div>
                     <span class="product-badge">Musik</span>
-                    <div class="product-title">Spotify Premium (1 Bulan)</div>
-                    <div class="product-desc">Individual/Family plan. Bebas iklan, download lagu offline.</div>
+                    <div class="product-title">Spotify Premium</div>
+                    <div class="product-desc">Individual / Family Plan. Bebas iklan, download lagu offline sepuasnya.</div>
                 </div>
                 <div>
                     <div class="product-price">Rp 15.000</div>
                     <a href="https://wa.me/?text=Halo%20KukuhShop07,%20saya%20mau%20order%20Spotify%20Premium" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> Pesan Sekarang</a>
                 </div>
             </div>
+
             <div class="product-card">
                 <div>
                     <span class="product-badge">Desain</span>
-                    <div class="product-title">Canva Pro Member / Lifetime</div>
-                    <div class="product-desc">Akses ribuan elemen premium & fitur hapus background.</div>
+                    <div class="product-title">Canva Pro Lifetime</div>
+                    <div class="product-desc">Akses ribuan elemen premium, template & fitur hapus background instan.</div>
                 </div>
                 <div>
                     <div class="product-price">Rp 10.000</div>
                     <a href="https://wa.me/?text=Halo%20KukuhShop07,%20saya%20mau%20order%20Canva%20Pro" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> Pesan Sekarang</a>
                 </div>
             </div>
+
+            <div class="product-card">
+                <div>
+                    <span class="product-badge">Editing</span>
+                    <div class="product-title">CapCut Pro</div>
+                    <div class="product-desc">Buka semua efek pro, template eksklusif, teks otomatis & cloud storage.</div>
+                </div>
+                <div>
+                    <div class="product-price">Rp 20.000</div>
+                    <a href="https://wa.me/?text=Halo%20KukuhShop07,%20saya%20mau%20order%20CapCut%20Pro" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> Pesan Sekarang</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <span class="product-badge">Video</span>
+                    <div class="product-title">YouTube Premium</div>
+                    <div class="product-desc">Nonton tanpa iklan, background play + YouTube Music Premium.</div>
+                </div>
+                <div>
+                    <div class="product-price">Rp 12.000</div>
+                    <a href="https://wa.me/?text=Halo%20KukuhShop07,%20saya%20mau%20order%20YouTube%20Premium" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> Pesan Sekarang</a>
+                </div>
+            </div>
+
         </div>
 
-        <div class="payment-box">
-            <h3><i class="fas fa-qrcode"></i> QRIS All Payment</h3>
-            <p>Mendukung DANA, OVO, GoPay, ShopeePay, & Transfer Bank</p>
-            <img src="https://via.placeholder.com/200x200?text=QRIS+KukuhShop07" alt="QRIS">
+        <!-- CATEGORY 2 -->
+        <div class="category-header"><i class="fas fa-gamepad"></i> Top Up & Game Credits</div>
+        <div class="product-grid">
+
+            <div class="product-card">
+                <div>
+                    <span class="product-badge">Garena</span>
+                    <div class="product-title">Free Fire 140 Diamonds</div>
+                    <div class="product-desc">Proses super cepat via ID Player. Legal 100% & aman garansi.</div>
+                </div>
+                <div>
+                    <div class="product-price">Rp 19.000</div>
+                    <a href="https://wa.me/?text=Halo%20KukuhShop07,%20saya%20mau%20Topup%20FF%20140%20DM" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> Pesan Sekarang</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <span class="product-badge">Moonton</span>
+                    <div class="product-title">Weekly Diamond Pass MLBB</div>
+                    <div class="product-desc">Dapatkan klaim diamond harian melimpah + starlight point.</div>
+                </div>
+                <div>
+                    <div class="product-price">Rp 28.000</div>
+                    <a href="https://wa.me/?text=Halo%20KukuhShop07,%20saya%20mau%20WDP%20Mobile%20Legends" class="btn-buy" target="_blank"><i class="fab fa-whatsapp"></i> Pesan Sekarang</a>
+                </div>
+            </div>
+
         </div>
-        <footer><p>&copy; 2026 KukuhShop07 X Caca Manis. All rights reserved.</p></footer>
+
+        <!-- PAYMENT -->
+        <div class="payment-box">
+            <h3><i class="fas fa-qrcode"></i> QRIS ALL PAYMENT</h3>
+            <p>Mendukung DANA, OVO, GoPay, ShopeePay & Seluruh M-Banking</p>
+            <img src="https://via.placeholder.com/200x200?text=QRIS+KukuhShop07" alt="QRIS Payment">
+            <p><small>*Scan QRIS di atas & kirim bukti transfer ke WhatsApp admin.</small></p>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 KukuhShop07 X Caca Manis. All rights reserved.</p>
+        </footer>
+
     </div>
+
     <script>
         function filterProducts() {
             const input = document.getElementById('searchInput').value.toLowerCase();
             const cards = document.getElementsByClassName('product-card');
             for (let i = 0; i < cards.length; i++) {
                 const title = cards[i].getElementsByClassName('product-title')[0].innerText.toLowerCase();
-                cards[i].style.display = title.includes(input) ? "" : "none";
+                const desc = cards[i].getElementsByClassName('product-desc')[0].innerText.toLowerCase();
+                cards[i].style.display = (title.includes(input) || desc.includes(input)) ? "" : "none";
             }
         }
     </script>
